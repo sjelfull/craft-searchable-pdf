@@ -1,0 +1,25 @@
+{#
+/**
+ * Searchable PDF plugin for Craft CMS 3.x
+ *
+ * Searchable PDF Settings.twig
+ *
+ * @author    Superbig
+ * @copyright Copyright (c) 2017 Superbig
+ * @link      https://superbig.co
+ * @package   SearchablePdf
+ * @since     1.0.0
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% do view.registerAssetBundle("superbig\\searchablepdf\\assetbundles\\searchablepdf\\SearchablePdfAsset") %}
+
+{{ forms.textField({
+    label: 'Some Field',
+    instructions: 'Enter some setting here.',
+    id: 'someAttribute',
+    name: 'someAttribute',
+    value: settings['someAttribute']})
+}}

@@ -1,0 +1,52 @@
+{
+    "name": "superbig/searchable-pdf",
+    "description": "Convert PDF assets into searchable text on upload",
+    "type": "craft-plugin",
+    "version": "1.0.0",
+    "keywords": [
+        "craft",
+        "cms",
+        "craftcms",
+        "craft-plugin",
+        "searchable pdf"
+    ],
+    "support": {
+        "docs": "https://github.com/sjelfull/searchable-pdf/blob/master/README.md",
+        "issues": "https://github.com/sjelfull/searchable-pdf/issues"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Superbig",
+            "homepage": "https://superbig.co"
+        }
+    ],
+    "require": {
+        "craftcms/cms": "~3.0.0-beta.23",
+        "thiagoalessio/tesseract_ocr": "^1.1",
+        "sgh/pdfbox": "^1.0"
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+          "superbig\\searchablepdf\\": "src/"
+        }
+    },
+    "extra": {
+        "name": "Searchable PDF",
+        "handle": "searchable-pdf",
+        "schemaVersion": "1.0.0",
+        "hasCpSettings": true,
+        "hasCpSection": false,
+        "changelogUrl": "https://raw.githubusercontent.com/sjelfull/searchable-pdf/master/CHANGELOG.md",
+        "components": {
+            "searchablePdfService": "superbig\\searchablepdf\\services\\SearchablePdfService"
+        },
+        "class": "superbig\\searchablepdf\\SearchablePdf"
+    }
+}
