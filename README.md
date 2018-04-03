@@ -1,8 +1,10 @@
 # Searchable PDF plugin for Craft CMS 3.x
 
+_WIP version - do not use in production_
+
 Convert PDF assets into searchable text on upload
 
-![Screenshot](resources/img/plugin-logo.png)
+![Icon](resources/icon.png)
 
 ## Requirements
 
@@ -18,7 +20,7 @@ To install the plugin, follow these instructions.
 
 2. Then tell Composer to load the plugin:
 
-        composer require sjelfull/searchable-pdf
+        composer require superbig/searchable-pdf
 
 3. In the Control Panel, go to Settings → Plugins and click the “Install” button for Searchable PDF.
 
@@ -35,8 +37,6 @@ To install the plugin, follow these instructions.
 -Insert text here-
 
 ## Searchable PDF Roadmap
-
-Some things to do, and ideas for potential features:
 
 * Release it
 
