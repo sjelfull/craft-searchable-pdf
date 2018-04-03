@@ -11,6 +11,7 @@
 namespace superbig\searchablepdf\services;
 
 use craft\base\Element;
+use craft\base\ElementInterface;
 use craft\elements\Asset;
 use SGH\PdfBox\PdfBox;
 use superbig\searchablepdf\jobs\ParseJob;
@@ -29,7 +30,7 @@ class SearchablePdfService extends Component
     // Public Methods
     // =========================================================================
 
-    public function parse (Asset $asset)
+    public function parse(Asset $asset)
     {
         $converter = new PdfBox;
         $converter->setPathToPdfBox('/Users/fred/bin/pdfbox-app-2.0.7.jar');
@@ -44,14 +45,15 @@ class SearchablePdfService extends Component
     }
 
     /**
-     * @param Asset $asset
+     * @param ElementInterface $asset
      *
      * @return string
+     *
      */
-    public function onSave (Asset $asset)
+    public function onSave(ElementInterface $asset)
     {
-        if ( $this->_isPDF($asset) ) {
-            // New:
+        /** @var Asset $asset */
+        if ($this->_isPDF($asset)) {
             Craft::$app->queue->push(new ParseJob([
                 'description' => 'Parsing content for ' . $asset->filename,
                 'assetId'     => $asset->id,
@@ -59,7 +61,7 @@ class SearchablePdfService extends Component
         }
     }
 
-    private function _isPDF (Asset $asset)
+    private function _isPDF(Asset $asset)
     {
         return strtolower($asset->getExtension()) === 'pdf' || $asset->getMimeType() == 'application/pdf';
     }
